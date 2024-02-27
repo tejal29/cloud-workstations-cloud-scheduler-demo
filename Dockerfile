@@ -8,6 +8,7 @@ WORKDIR $APP_HOME
 COPY . ./
 
 CMD chmod 755 ./workstations.sh
+CMD chmod 755 ./update_config.sh
 
 # Install production dependencies.
 RUN pip3 install Flask gunicorn

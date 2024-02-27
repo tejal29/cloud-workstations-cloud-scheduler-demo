@@ -42,6 +42,21 @@ def stop():
     )
     return o.stdout
 
+
+@app.route("/update_config", methods=["POST", "GET"])
+def update_config():
+    data = request.json
+    cluster =  data["cluster"]
+    region = data["region"]
+    config_key = data["config_key"]
+    value =  data["value"]
+    path = os.path.join(app.root_path, "update_config.sh")
+    o = subprocess.run(
+        [path, cluster, region, config_key, value ], 
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
+    )
+    return o.stdout
+
 if __name__ == "__main__":
     app.run(
         debug=True,
