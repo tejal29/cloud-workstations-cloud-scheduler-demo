@@ -12,7 +12,7 @@ if __name__ != '__main__':
 @app.route("/", methods=["GET"])
 def root():
     app.logger.info("Get request / recieved.")
-    return "Endpoints /start, /stop supported."
+    return "Endpoints /start, /stop, /update_config supported."
 
 @app.route("/start", methods=["POST", "GET"])
 def start():
